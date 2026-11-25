@@ -50,6 +50,14 @@ ul {
 
 /* HEADER */
 
+.brand-logo-img {
+    height: 40px;
+    width: auto;
+    border-radius: 6px;
+    object-fit: contain;
+    display: block;
+}
+
 .site-header {
     background-color: var(--dark-bg);
     color: var(--white);
@@ -533,10 +541,79 @@ ul {
 
 /* DESPRE, PROIECTE, GALERIE, STUDENȚI, CONTACT */
 
-.three-col-info {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+.story-list {
+    display: flex;
+    flex-direction: column;
     gap: 24px;
+    max-width: 960px;
+}
+
+.story-card {
+    position: relative;
+    background-color: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-left: 4px solid transparent;
+    border-radius: 10px;
+    padding: 28px 32px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+}
+
+    .story-card:hover {
+        transform: translateY(-4px);
+        background-color: #ffffff;
+        border-color: rgba(139, 21, 56, 0.28);
+        border-left-color: var(--primary);
+        box-shadow: 0 12px 26px rgba(32, 12, 18, 0.08);
+    }
+
+.story-card-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+    .story-card-head .panel-num {
+        margin-bottom: 0;
+        transition: transform 0.25s ease, color 0.25s ease;
+    }
+
+.story-card:hover .panel-num {
+    transform: scale(1.08);
+    color: var(--primary);
+}
+
+.story-card-head h2 {
+    font-size: 23px;
+    font-weight: 800;
+    color: var(--dark-bg);
+    margin: 0;
+    transition: color 0.25s ease;
+}
+
+.story-card:hover .story-card-head h2 {
+    color: var(--primary);
+}
+
+.story-card p {
+    color: var(--text-main);
+    font-size: 16px;
+    line-height: 1.75;
+    margin-bottom: 12px;
+}
+
+    .story-card p:last-child {
+        margin-bottom: 0;
+    }
+
+@media (max-width: 768px) {
+    .story-card {
+        padding: 22px 20px;
+    }
+
+    .story-card-head h2 {
+        font-size: 20px;
+    }
 }
 
 .board-president-row {
@@ -551,20 +628,32 @@ ul {
 }
 
 .board-members-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 20px;
 }
 
-@media (max-width: 1024px) {
-    .board-members-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .board-members-grid .team-card {
+        flex: 0 1 300px;
+        max-width: 340px;
     }
+
+.team-photo {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 50%;
+    margin: 0 auto 14px;
+    display: block;
+    border: 3px solid var(--border);
 }
 
 @media (max-width: 768px) {
-    .board-members-grid {
-        grid-template-columns: 1fr;
+    .board-members-grid .team-card {
+        flex: 1 1 100%;
+        max-width: 100%;
     }
 }
 
